@@ -30,10 +30,7 @@ var updateCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
-		err = rake(janusDir)
-		if err != nil {
-			log.Fatalf("rake command to update Janus failed: %s", err)
-		}
+		go rake(janusDir)
 
 		// Determine the custom Janus plug-ins installed and update.
 		pluginDir, err := homedir.Expand("~/.janus")
@@ -47,23 +44,26 @@ var updateCmd = &cobra.Command{
 		for _, plugin := range plugins {
 			fmt.Println(plugin.Name())
 			p := path.Join(pluginDir, plugin.Name())
-			err = gitPull(p)
-			if err != nil {
-				log.Fatalf("cmd.Run() failed with %s\n", err)
-			}
+			go gitPull(p)
 		}
 	},
 }
 
-func rake(dir string) error {
+func rake(dir string) {
 	// Update Janus
 	c := exec.Command("rake")
 	c.Dir = dir
-	return c.Run()
+	err := c.Run()
+	if err != nil {
+		log.Printf("rake had error: %s", err)
+	}
 }
 
-func gitPull(dir string) error {
+func gitPull(dir string) {
 	c := exec.Command("git", "pull")
 	c.Dir = dir
-	return c.Run()
+	err := c.Run()
+	if err != nil {
+		log.Printf("git pull %s had error: %s", dir, err)
+	}
 }
