@@ -22,7 +22,7 @@ func init() {
 
 var updateCmd = &cobra.Command{
 	Use:   "update",
-	Short: "Update Vim dependencies",
+	Short: "Update Vim plugins",
 	Run: func(cmd *cobra.Command, args []string) {
 		// Update Janus
 		fmt.Println("Updating Janus (running rake)")

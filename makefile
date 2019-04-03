@@ -4,6 +4,7 @@ help:
 	@echo "You can perform the following:"
 	@echo ""
 	@echo "  check  Format, lint, vet, and test Go code"
+	@echo "  deploy Copy to ~/bin"
 	@echo "  local  Build for local OS"
 	@echo "  win    Build for Windows"
 
@@ -19,3 +20,6 @@ win:
 
 local:
 	env go build -o dist/vin
+
+deploy: local
+	cp dist/vin ~/bin
