@@ -20,7 +20,7 @@ func init() {
 
 var removeCmd = &cobra.Command{
 	Use:     "remove [plug-in]",
-	Aliases: []string{"rm"},
+	Aliases: []string{"rm", "uninstall"},
 	Short:   "remove a Vim plug-in",
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
