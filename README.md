@@ -9,7 +9,7 @@ CLI for Vim plugins
 
 ## Overview
 
-Vin is a CLI written in Go to install and update plugins. It plays
+Vin is a CLI written in Go to install and update Vim plugins. It plays
 nicely with [Janus][].
 
 ## Installation

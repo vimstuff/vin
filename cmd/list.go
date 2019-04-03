@@ -19,8 +19,9 @@ func init() {
 }
 
 var listCmd = &cobra.Command{
-	Use:   "list",
-	Short: "list Vim plug-ins",
+	Use:     "list",
+	Aliases: []string{"ls"},
+	Short:   "list Vim plug-ins",
 	Run: func(cmd *cobra.Command, args []string) {
 		// FIXME(mdr): List the disabled Janus plugins.
 
