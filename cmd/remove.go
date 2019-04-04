@@ -21,10 +21,10 @@ func init() {
 var removeCmd = &cobra.Command{
 	Use:     "remove [plug-in]",
 	Aliases: []string{"rm", "uninstall"},
-	Short:   "remove a Vim plug-in",
+	Short:   "Remove a Vim plug-in",
 	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		// Determine the custom Janus plug-ins installed and update.
+		// FIXME(mdr): Add confirmation question before deleting.
 		pluginDir, err := homedir.Expand("~/.janus")
 		if err != nil {
 			log.Fatal(err)
