@@ -12,6 +12,47 @@ CLI for Vim plugins
 Vin is a CLI written in Go to install and update Vim plugins. It plays
 nicely with [Janus][].
 
+## Usage
+
+Here's an example usage.
+
+```bash
+$ vin install https://github.com/gregsexton/MatchTag
+$ vin rm MatchTag
+$ vin install https://github.com/matchtags/MatchTags
+$ vin ls
+The following Janus included plug-ins are disabled:
+  syntastic
+The following additional plug-ins are installed:
+  MatchTags
+  ale
+  elm-vim
+  fzf
+  fzf.vim
+  tabular
+  vim-airline
+  vim-closetag
+  vim-go
+  vim-json
+  vim-prettier
+  vim-vue
+$ vin up
+Updating Janus (running rake)
+MatchTags
+ale
+elm-vim
+fzf
+fzf.vim
+tabular
+vim-airline
+vim-closetag
+vim-go
+vim-json
+vim-prettier
+vim-vue
+
+```
+
 ## Installation
 
 TODO: Need to update.
